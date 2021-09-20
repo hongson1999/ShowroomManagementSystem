@@ -1,0 +1,26 @@
+Họp
+Git
+Dò lại Usecase (CRUD)
+Đúng dealer mới đổi status
+Hash password MD5
+
+Phú
+- [] - Migrate Database
+- [] - Dựng Interface ở server
+- [] - DealersController
+- [] - AuthController
+
+Nguyên
+- [] - BranchsController
+- [] - VehiclesController
+- [] - ShowroomVehiclesController
+- [] - WarehousesController
+
+Sơn
+- [] - ServicesController
+- [] - StatusOrdersController
+- [] - OrdersController
+- [] - CustomersController
+
+Dương
+- [] - Tạo DumpDatabase /Data/DbInitializer.cs
