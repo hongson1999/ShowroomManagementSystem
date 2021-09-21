@@ -21,8 +21,8 @@ namespace Server.Data
             // Create dump branchs
             var branches = new Branch[]
             {
-                new Branch{Name="Lamborghini"},
-                new Branch{Name="Mercedes"},
+                new Branch{Name="Lamborghini"}, // id = 1
+                new Branch{Name="Mercedes"}, // id = 2
             };
             foreach (Branch b in branches)
             {
@@ -33,7 +33,7 @@ namespace Server.Data
             // Create dump vehicles
             var vehicles = new Vehicle[]
             {
-                new Vehicle{ModelNumber="asd", Name="asd", Price=12, BranchId=1},
+                new Vehicle{ ModelNumber="asd", Name="asd", Price=12, BranchId=1},
             };
             foreach (Vehicle v in vehicles)
             {

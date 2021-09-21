@@ -17,10 +17,12 @@ Nguyên
 - [] - WarehousesController
 
 Sơn
-- [] - ServicesController
+- [V] - ServicesController
 - [] - StatusOrdersController
 - [] - OrdersController
 - [] - CustomersController
 
 Dương
 - [] - Tạo DumpDatabase /Data/DbInitializer.cs
+// Branches, Customers, Services, Dealers tạo thôi, éo quan tâm
+// Vehicle

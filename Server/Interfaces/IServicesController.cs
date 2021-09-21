@@ -9,6 +9,6 @@ namespace Server.Interfaces
     interface IServicesController
     {
         // Get
-        public IEnumerable<Service> Get();
+        public Task<IEnumerable<Service>> Get();
     }
 }
