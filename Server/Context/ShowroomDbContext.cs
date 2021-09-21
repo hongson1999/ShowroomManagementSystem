@@ -36,5 +36,7 @@ namespace Server.Context
         }
 
         public DbSet<Server.Models.Service> Service { get; set; }
+
+        public DbSet<Server.Models.Dealer> Dealer { get; set; }
     }
 }

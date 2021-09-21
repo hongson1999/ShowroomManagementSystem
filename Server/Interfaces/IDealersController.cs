@@ -9,15 +9,15 @@ namespace Server.Interfaces
     interface IDealersController
     {
         // Get
-        public IEnumerable<Dealer> Get();
+        public Task<IEnumerable<Dealer>> Get();
 
         // {id}
-        public Dealer Get(int id);
+        public Task<Dealer> Get(int id);
 
         // Post
-        public bool Post(Dealer newDealer);
+        public Task<bool> Post(Dealer newDealer);
 
         // Put
-        public bool Put(Dealer newDealer);
+        public Task<bool> Put(Dealer newDealer);
     }
 }
