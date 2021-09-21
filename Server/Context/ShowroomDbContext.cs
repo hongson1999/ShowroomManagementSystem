@@ -16,6 +16,12 @@ namespace Server.Context
         public DbSet<ShowroomVehicle> ShowroomVehicles { get; set; }
         public DbSet<WarehouseVehicle> WarehouseVehicles { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<StatusOrder> StatusOrders { get; set; }
+        public DbSet<Dealer> Dealers { get; set; }
+        public DbSet<Service> Services { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

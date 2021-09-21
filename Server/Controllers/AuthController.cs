@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Server.Context;
 using Server.Interfaces;
 using Server.Models;
+using Server.Extensions;
 
 namespace Server.Controllers
 {
@@ -22,28 +23,26 @@ namespace Server.Controllers
             _context = context;
         }
 
-        private class LoginModel
-        {
-            public string Username { get; set; }
-            public string Password { get; set; }
-        }
-
+        [HttpGet("Valid")]
         public bool CheckValid(string token)
         {
             throw new NotImplementedException();
         }
 
-        public string Login(string userName, string password)
+        [HttpPost("Login")]
+        public ActionResult<string> Login(LoginModel input)
         {
-            throw new NotImplementedException();
+            if (!DealerExists(input.Email, input.Password))
+            {
+                return Unauthorized();
+            }
+
+            return "";
         }
 
-        [HttpPost]
-
-
-        private bool DealerExists(int id)
+        private bool DealerExists(string email, string password)
         {
-            return _context.Dealer.Any(e => e.Id == id);
+            return _context.Dealers.Any(e => e.Email.Equals(email) && e.Password.Equals(password.HashPasswordMD5()));
         }
     }
 }

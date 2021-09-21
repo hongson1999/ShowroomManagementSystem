@@ -19,10 +19,8 @@ namespace Server.Models
         public string Email { get; set; }
 
         [Required]
+        [StringLength(32)]
         public string Password { get; set; }
-
-        [Required]
-        public string ConfirmPassword { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
@@ -31,5 +29,9 @@ namespace Server.Models
         [Required]
         [DataType(DataType.Date)]
         public DateTime UpdatedAt { get; set; }
+
+        // ------------
+
+        public ICollection<Order> Order { get; set; }
     }
 }

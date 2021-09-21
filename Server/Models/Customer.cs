@@ -27,5 +27,9 @@ namespace Server.Models
         [Required]
         [StringLength(200)]
         public string Address { get; set; }
+
+        // ----------
+
+        public ICollection<Order> Orders { get; set; }
     }
 }

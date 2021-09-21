@@ -27,26 +27,22 @@ namespace Server.Controllers
         [HttpGet]
         public async Task<IEnumerable<Dealer>> Get()
         {
-            return await _context.Dealer.ToListAsync();
-        }
-
-        public string GetTest()
-        {
-            string s = "showroom";
-            return s.GenerateRandomId(10);
+            return await _context.Dealers.ToListAsync();
         }
 
         // GET: api/Dealers/5
         [HttpGet("{id}")]
         public async Task<Dealer> Get(int id)
         {
-            var dealer = await _context.Dealer.FindAsync(id);
+            var dealer = await _context.Dealers
+                .Include(d => d.Order)
+                .FirstOrDefaultAsync(d => d.Id == id);
 
             return dealer;
         }
 
         // PUT: api/Dealers/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public async Task<bool> Put(Dealer dealer)
         {
             if (dealer.Id != dealer.Id)
@@ -80,7 +76,8 @@ namespace Server.Controllers
         [HttpPost]
         public async Task<bool> Post(Dealer dealer)
         {
-            _context.Dealer.Add(dealer);
+            dealer.Password = dealer.Password.HashPasswordMD5();
+            _context.Dealers.Add(dealer);
             await _context.SaveChangesAsync();
 
             return true;
@@ -88,23 +85,23 @@ namespace Server.Controllers
 
         // DELETE: api/Dealers/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            var dealer = await _context.Dealer.FindAsync(id);
+            var dealer = await _context.Dealers.FindAsync(id);
             if (dealer == null)
             {
-                return NotFound();
+                return false;
             }
 
-            _context.Dealer.Remove(dealer);
+            _context.Dealers.Remove(dealer);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return true;
         }
 
         private bool DealerExists(int id)
         {
-            return _context.Dealer.Any(e => e.Id == id);
+            return _context.Dealers.Any(e => e.Id == id);
         }
     }
 }
