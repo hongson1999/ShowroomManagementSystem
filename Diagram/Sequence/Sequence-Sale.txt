@@ -1,0 +1,54 @@
+participant Custom
+participant Dealer
+participant Vehicle Detail View
+participant Order Vehicle View
+participant Order Controller
+participant Database
+
+Dealer->Vehicle Detail View: Open
+activate Vehicle Detail View
+Vehicle Detail View->Database: Request
+activate Database
+Database-->Vehicle Detail View: Vehicle information
+deactivate Database
+Vehicle Detail View->Order Vehicle View: Customer confirm\nand begin to order
+deactivate Vehicle Detail View
+activate Order Vehicle View
+Order Vehicle View->Database: Request
+activate Database
+Database-->Order Vehicle View: Quantity vehicle available or services available
+deactivate Database
+alt available to order
+Dealer->Order Vehicle View: Input require values
+Order Vehicle View->Order Controller: Submit
+activate Order Controller
+Order Controller->Order Controller: Create order
+activate Database
+Order Controller->Database: Save new order
+alt Complete create order
+deactivate Database
+Order Controller-->Order Vehicle View:Finish order response
+deactivate Order Vehicle View
+deactivate Order Controller
+Dealer->Custom: Assign Veicle
+Dealer->Order Vehicle View: Update status order
+activate Order Vehicle View
+Order Vehicle View->Order Controller: Submit update status
+activate Order Controller
+activate Database
+Order Controller->Database: Update order
+deactivate Database
+Order Controller-->Order Vehicle View: Success update message
+deactivate Order Vehicle View
+deactivate Order Controller
+else Has some error
+activate Order Vehicle View
+activate Order Controller
+Order Controller-->Order Vehicle View: Error message
+deactivate Order Controller
+end
+deactivate Order Vehicle View
+else vehicles, services not available to order
+activate Order Vehicle View
+Order Vehicle View->Order Vehicle View: Show messeage: can't order
+end

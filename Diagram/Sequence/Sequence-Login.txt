@@ -1,0 +1,38 @@
+
+Login
+
+participant Dealer
+participant Dealer View
+participant Login View
+participant Auth Controller
+participant Database
+Dealer->Login View:Open
+activate Login View
+
+Dealer->Login View:Email, password
+Login View->Auth Controller: Submit
+activate Auth Controller
+Auth Controller->Auth Controller: Valid input
+
+alt Fail Valid
+Login View<--Auth Controller:Fail response
+
+deactivate Login View
+deactivate Auth Controller
+else Compatible input
+Auth Controller->Database: Check login
+activate Database
+activate Auth Controller
+Database-->Auth Controller:Result check
+deactivate Database
+alt Is a dealer
+Auth Controller-->Dealer View: Return html 
+activate Dealer View
+deactivate Auth Controller
+else Not a dealer
+activate Auth Controller
+Auth Controller-->Login View: Fail Response
+activate Login View
+deactivate Auth Controller
+end
+end

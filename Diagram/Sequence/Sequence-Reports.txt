@@ -1,0 +1,16 @@
+participant Dealer
+participant Management View
+participant Management Controller
+participant Database
+
+Dealer->Management View: Open
+activate Management View
+Management Controller->Database: Request
+activate Database
+activate Management Controller
+Database-->Management Controller: Data
+deactivate Database
+Management Controller->Management Controller: Initial, process reports
+Management Controller->Management View: Return reports
+
+deactivate Management Controller

@@ -1,0 +1,44 @@
+participant Company
+participant Dealer
+participant Vehicle View
+participant Order Vehicle View
+participant Order Controller
+participant Database
+
+Dealer->Vehicle View: Open
+activate Vehicle View
+Vehicle View->Database: Request
+activate Database
+Database-->Vehicle View: Vehicle List
+deactivate Database
+Vehicle View->Order Vehicle View: Determine vehicle
+deactivate Vehicle View
+activate Order Vehicle View
+Order Vehicle View->Order Vehicle View: Determine quantity
+Order Vehicle View->Order Controller:Submit with vehicle ID
+activate Order Controller
+Order Controller->Order Controller: Create order
+activate Database
+Order Controller->Database: Save new Order
+alt Complete order
+deactivate Database
+Order Controller-->Order Vehicle View: Finish order response
+deactivate Order Vehicle View
+deactivate Order Controller
+Company->Dealer: Assign vehicles
+Dealer->Order Vehicle View: Update status order
+activate Order Vehicle View
+Order Vehicle View->Order Controller:Submit new status
+activate Database
+activate Order Controller
+Order Controller->Database: Update order
+deactivate Database
+Order Controller-->Order Vehicle View: Update success message
+deactivate Order Controller
+deactivate Order Vehicle View
+else Has any error
+activate Order Vehicle View
+activate Order Controller
+Order Controller-->Order Vehicle View: Error response
+deactivate Order Controller
+end
