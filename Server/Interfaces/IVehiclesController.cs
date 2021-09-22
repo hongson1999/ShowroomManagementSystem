@@ -9,6 +9,6 @@ namespace Server.Interfaces
     interface IVehiclesController
     {
         // Get
-        public IEnumerable<Vehicle> Get();
+        public Task<IEnumerable<Vehicle>> Get();
     }
 }

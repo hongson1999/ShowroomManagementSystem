@@ -13,7 +13,7 @@ namespace Server.Models
         public int Id { get; set; }
 
         [Required]
-        public int Quantity { get; set; } = 1;
+        public int? Quantity { get; set; }
 
         // -------------------
 
@@ -34,5 +34,7 @@ namespace Server.Models
         public int? ServiceId { get; set; }
 
         public Service Service { get; set; }
+
+        public ICollection<WarehouseVehicle> WarehouseVehicles { get; set; }
     }
 }

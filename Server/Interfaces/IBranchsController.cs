@@ -9,6 +9,6 @@ namespace Server.Interfaces
     interface IBranchController
     {
         // Get
-        public IEnumerable<Branch> GetBranches();
+        public Task<IEnumerable<Branch>> Get();
     }
 }

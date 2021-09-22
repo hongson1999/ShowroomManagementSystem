@@ -13,19 +13,19 @@ namespace Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ServicesController : ControllerBase, IServicesController
+    public class VehiclesController : ControllerBase, IVehiclesController
     {
         private readonly ShowroomDbContext _context;
 
-        public ServicesController(ShowroomDbContext context)
+        public VehiclesController(ShowroomDbContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Service>> Get()
+        public async Task<IEnumerable<Vehicle>> Get()
         {
-            return await _context.Services.ToListAsync();
+            return await _context.Vehicles.ToListAsync();
         }
     }
 }

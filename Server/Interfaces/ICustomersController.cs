@@ -9,16 +9,16 @@ namespace Server.Interfaces
     interface ICustomersController
     {
         // Get
-        public IEnumerable<Customer> Get();
+        public Task<IEnumerable<Customer>> Get();
 
         // Get
         // {id}
-        public Customer Get(int id);
+        public Task<Customer> Get(int id);
 
         // Post
-        public bool Post(Customer newCustomer);
+        public Task<bool> Post(Customer newCustomer);
 
         // Put
-        public bool Put(Customer newCustomer);
+        public Task<bool> Put(Customer newCustomer);
     }
 }

@@ -6,26 +6,26 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Server.Context;
-using Server.Interfaces;
 using Server.Models;
+using Server.Interfaces;
 
 namespace Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ServicesController : ControllerBase, IServicesController
+    public class BranchesController : ControllerBase, IBranchController
     {
         private readonly ShowroomDbContext _context;
 
-        public ServicesController(ShowroomDbContext context)
+        public BranchesController(ShowroomDbContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Service>> Get()
+        public async Task<IEnumerable<Branch>> Get()
         {
-            return await _context.Services.ToListAsync();
+            return await _context.Branches.ToListAsync();
         }
     }
 }

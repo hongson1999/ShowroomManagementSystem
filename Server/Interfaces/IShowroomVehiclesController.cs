@@ -9,19 +9,19 @@ namespace Server.Interfaces
     interface IShowroomVehiclesController
     {
         // Get
-        public IEnumerable<ShowroomVehicle> Get();
+        public Task<IEnumerable<ShowroomVehicle>> Get();
 
         // Get
         // {id}
-        public ShowroomVehicle Get(string id);
+        public Task<ShowroomVehicle> Get(string id);
 
         // Post
-        public bool Post(ShowroomVehicle newVehicle);
+        public Task<bool> Post(ShowroomVehicle newVehicle);
 
         // Put
-        public bool Put(ShowroomVehicle newVehicle);
+        public Task<bool> Put(ShowroomVehicle newVehicle);
 
         // Delete
-        public bool Delete(string id);
+        public Task<bool> Delete(string id);
     }
 }

@@ -19,6 +19,7 @@ namespace Server.Models
         public DateTime AllotDate { get; set; } = DateTime.Now.Date;
 
         // --------------
+
         [ForeignKey("OrderDetail")]
         public int? OrderDetailId { get; set; }
 

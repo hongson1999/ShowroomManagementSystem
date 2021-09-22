@@ -9,6 +9,6 @@ namespace Server.Interfaces
     interface IStatusOrdersController
     {
         // Get
-        public IEnumerable<StatusOrder> Get();
+        public Task<IEnumerable<StatusOrder>> Get();
     }
 }

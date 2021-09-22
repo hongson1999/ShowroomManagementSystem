@@ -14,7 +14,7 @@ namespace Server.Models
 
         [Required]
         [Column(TypeName = "decimal(10, 2)")]
-        public float Total { get; set; }
+        public float? Total { get; set; }
 
         [Required]
         [StringLength(200)]
@@ -47,8 +47,10 @@ namespace Server.Models
         public StatusOrder StatusOrder { get; set; }
 
         [ForeignKey("Customer")]
-        public int CustomerId { get; set; }
+        public int? CustomerId { get; set; }
 
         public Customer Customer { get; set; }
+
+        public ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

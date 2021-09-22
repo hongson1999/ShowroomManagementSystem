@@ -40,9 +40,5 @@ namespace Server.Context
             modelBuilder.Entity<Order>().ToTable("Orders");
             modelBuilder.Entity<OrderDetail>().ToTable("OrderDetails");
         }
-
-        public DbSet<Server.Models.Service> Service { get; set; }
-
-        public DbSet<Server.Models.Dealer> Dealer { get; set; }
     }
 }

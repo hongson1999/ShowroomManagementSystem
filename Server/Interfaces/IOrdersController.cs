@@ -9,16 +9,22 @@ namespace Server.Interfaces
     interface IOrdersController
     {
         // Get
-        public IEnumerable<Order> Get();
+        public Task<IEnumerable<Order>> Get();
 
         // Get
         // {id}
-        public Order Get(int id);
+        public Task<Order> Get(int id);
 
         // Post
-        public bool Post(Order newOrder);
+        public Task<bool> Post(Order newOrder);
 
         // Put
-        public bool Put(int orderId, StatusOrder newStatus);
+        public Task<bool> Put(int orderId, StatusOrder newStatus);
+    }
+
+    public class UpdateStatusOrderModel
+    {
+        public int orderId { get; set; }
+        public int statusId { get; set; }
     }
 }

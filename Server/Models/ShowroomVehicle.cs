@@ -25,6 +25,8 @@ namespace Server.Models
 
         public Vehicle Vehicle { get; set; }
 
-        public ICollection<OrderDetail> OrderDatails { get; set; }
+        public ICollection<OrderDetail> OrderDetails { get; set; }
+
+        public ICollection<WarehouseVehicle> WarehouseVehicles { get; set; }
     }
 }

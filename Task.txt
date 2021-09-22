@@ -6,23 +6,23 @@ Hash password MD5
 
 Phú
 - [] - Migrate Database
-- [] - Dựng Interface ở server
-- [] - DealersController
+- [V] - Dựng Interface ở server
+- [V] - DealersController
 - [] - AuthController
 
 Nguyên
-- [] - BranchsController
-- [] - VehiclesController
-- [] - ShowroomVehiclesController
-- [] - WarehousesController
+- [V] - BranchsController
+- [V] - VehiclesController
+- [V] - ShowroomVehiclesController
+- [V] - WarehousesController
 
 Sơn
 - [V] - ServicesController
-- [] - StatusOrdersController
-- [] - OrdersController
-- [] - CustomersController
+- [V] - StatusOrdersController
+- [V] - OrdersController
+- [V] - CustomersController
 
 Dương
-- [] - Tạo DumpDatabase /Data/DbInitializer.cs
+- [V] - Tạo DumpDatabase /Data/DbInitializer.cs
 // Branches, Customers, Services, Dealers tạo thôi, éo quan tâm
 // Vehicle

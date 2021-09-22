@@ -11,21 +11,21 @@ using Server.Models;
 
 namespace Server.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
-    public class ServicesController : ControllerBase, IServicesController
+    public class StatusOrdersController : ControllerBase, IStatusOrdersController
     {
         private readonly ShowroomDbContext _context;
 
-        public ServicesController(ShowroomDbContext context)
+        public StatusOrdersController(ShowroomDbContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Service>> Get()
+        public async Task<IEnumerable<StatusOrder>> Get()
         {
-            return await _context.Services.ToListAsync();
+            return await _context.StatusOrders.ToListAsync();
         }
     }
 }
